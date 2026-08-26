@@ -64,6 +64,8 @@ nav.links a:hover,nav.links a.active{color:var(--cyan)}
 main{position:relative;z-index:10}
 section{min-height:108vh;display:flex;align-items:center;padding:120px 0;position:relative}
 section.hero{min-height:100vh}
+section.trust{min-height:auto;padding:120px 0 0}
+.trust .stats{margin-bottom:0}
 .veiled{background:linear-gradient(180deg,transparent,rgba(8,9,11,.72) 18%,rgba(8,9,11,.72) 82%,transparent)}
 .side-left{justify-content:flex-start}
 .side-right{justify-content:flex-end}
@@ -293,6 +295,21 @@ footer.site .ffl{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;t
         <blockquote><p>&ldquo;Got my Colt back better than I ever imagined. Bench-jeweler-grade work.&rdquo;</p><footer><span class='cyan'>R. MONROE</span><span>PRIVATE COMMISSION</span></footer></blockquote>
         <blockquote><p>&ldquo;The real deal. The engraving on my Hi-Power is unreal.&rdquo;</p><footer><span class='cyan'>@kjm.firearms</span><span>INSTAGRAM</span></footer></blockquote>
         <blockquote><p>&ldquo;Communication, finish quality, turnaround &mdash; all top tier.&rdquo;</p><footer><span class='cyan'>T. ALVAREZ</span><span>REPEAT CLIENT</span></footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BLOCK
+       Sits directly above the commission form. TASK 5 inserts that form
+       between this block and the §07 invitation below. Reuses the §06
+       PROOF .stats grid verbatim, so the two stay in step by construction. -->
+  <section class='trust'>
+    <div class='wrap'>
+      <div class='stats reveal'>
+        <div class='stat'><div class='big'>48H</div><div class='lbl'>First reply from the bench</div></div>
+        <div class='stat'><div class='big'>1:1</div><div class='lbl'>Direct with the artisan, not a rep</div></div>
+        <div class='stat'><div class='big'>FFL</div><div class='lbl'>Fully insured transfer both ways</div></div>
+        <div class='stat'><div class='big'>6YR</div><div class='lbl'>Every finish backed by a written guarantee</div></div>
       </div>
     </div>
   </section>
