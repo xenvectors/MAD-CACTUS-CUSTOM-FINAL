@@ -84,6 +84,8 @@ section.hero{min-height:100vh}
 .hero .spec{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .hero .spec b{color:rgba(43,182,206,.75);font-weight:400}
 .scrollcue{font-family:var(--mono);font-size:.6rem;letter-spacing:.3em;color:var(--faint)}
+.hero .foot .hero-cta{margin-bottom:10px}
+@media(max-width:520px){.hero .foot .hero-cta{padding:14px 26px}}
 
 /* CHECKLIST (client's real services) */
 .checks{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
@@ -188,6 +190,7 @@ footer.site .ffl{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;t
     <div class='wrap'>
       <div class='eyebrow'>The Custom Firearm Atelier &nbsp;·&nbsp; Dayton, TX</div>
       <div class='foot'>
+        <a class='cta hero-cta' href='#commission'>Start a Build <span>&#8594;</span></a>
         <div class='spec'><span><b>UNIT</b> MC-019</span><span><b>FINISH</b> 24K GOLD</span><span><b>ENGRAVING</b> HAND SCROLL</span></div>
         <div class='scrollcue'>▼ &nbsp; SCROLL TO EXPLORE</div>
       </div>
@@ -270,7 +273,9 @@ footer.site .ffl{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;t
   </section>
 
   <!-- 06 CTA -->
-  <section class='cta-band'>
+  <!-- INTERIM ANCHOR: this section carries the commission anchor until TASK 5 builds
+       the commission form above it. Move the id onto that section when it is added. -->
+  <section class='cta-band' id='commission'>
     <div class='wrap'>
       <p class='kicker reveal'>§ 06 / Commission</p>
       <h2 class='reveal'>Bring us your <span class='gold'>heirloom.</span></h2>
