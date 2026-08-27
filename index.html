@@ -358,11 +358,12 @@ footer.site .ffl{font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;t
       <p class='body reveal'>Commissions open quarterly. The more you tell us here, the closer the first reply lands to what you actually want.</p>
 
       <!-- =========================== FORMSPREE ENDPOINT ===========================
-           PLACEHOLDER - REPLACE BEFORE LAUNCH.
-           Create the form at https://formspree.io, then swap the FORM_ID below
-           for the real id. The action attribute is the only thing that changes;
-           no build step, no serverless function, no dependency.
-                action='https://formspree.io/f/FORM_ID'
+           LIVE - form id xeaqjlwd. The same endpoint backs the form on
+           contact.html; change one, change the other.
+           Plain HTML POST on purpose: no bundler, no CDN script, and it still
+           submits with JavaScript disabled. The @formspree/ajax CDN build was
+           rejected because it loads from unpkg.com, the third-party dependency
+           removed in the accessibility pass.
            ========================================================================= -->
       <!-- Trust strip: folded in from its own section. Each item kills an
            objection someone has immediately before submitting. -->
@@ -374,7 +375,7 @@ footer.site .ffl{font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;t
           <div class='stat'><div class='big'>6YR</div><div class='lbl'>Every finish backed by a written guarantee</div></div>
       </div>
 
-      <form class='cf reveal' action='https://formspree.io/f/FORM_ID' method='POST'>
+      <form class='cf reveal' action='https://formspree.io/f/xeaqjlwd' method='POST'>
 
         <fieldset class='cf-group'>
           <legend>Host Firearm</legend>
