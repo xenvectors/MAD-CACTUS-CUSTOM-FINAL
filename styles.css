@@ -122,7 +122,9 @@ figure .spec b{color:var(--cyan-dim);font-weight:400}
 .cf-hint{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;color:var(--bone-dim);margin-left:10px}
 .cf-chips{display:flex;flex-wrap:wrap;gap:10px}
 .cf-chips input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.cf-chips label{display:inline-flex;align-items:center;padding:12px 20px;border:1px solid var(--line);background:rgba(17,19,22,.6);font-family:var(--mono);font-size:.69rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.cf-chips label{display:inline-flex;align-items:center;padding:12px 20px;border:1px solid rgba(233,230,223,.40);background:rgba(17,19,22,.6);font-family:var(--mono);font-size:.69rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.cf-chips label::before{content:'\2713';flex:none;display:inline-block;width:1em;margin-right:7px;text-align:center;visibility:hidden}
+.cf-chips input:checked+label::before{visibility:visible}
 .cf-chips label:hover{border-color:rgba(43,182,206,.5);color:var(--fg)}
 .cf-chips input:checked+label{background:var(--cyan);border-color:var(--cyan);color:#04181c}
 .cf-chips input:focus-visible+label{outline:2px solid var(--cyan);outline-offset:3px}
@@ -135,7 +137,11 @@ figure .spec b{color:var(--cyan-dim);font-weight:400}
 @media(max-width:620px){.cf-row{grid-template-columns:1fr}}
 .cf-field{display:flex;flex-direction:column;margin-bottom:22px}
 .cf-field label{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.cf-field input,.cf-field textarea{background:rgba(17,19,22,.7);border:1px solid var(--line);color:var(--fg);font-family:var(--body);font-weight:300;font-size:.95rem;padding:14px 16px;width:100%;transition:border-color .2s}
+/* Solid fill, not alpha: predictable whatever sits behind it. Border alpha .40
+   measures 3.27:1 against the page - SC 1.4.11 needs 3:1 for a control boundary.
+   --line stays at .10 for decorative hairlines, which 1.4.11 does not govern. */
+.cf-field input,.cf-field textarea{background:#14171b;border:1px solid rgba(233,230,223,.40);color:var(--fg);font-family:var(--body);font-weight:300;font-size:.95rem;padding:14px 16px;width:100%;transition:border-color .2s}
+.cf-field input:hover,.cf-field textarea:hover{border-color:rgba(233,230,223,.55)}
 .cf-field input:focus,.cf-field textarea:focus{border-color:rgba(43,182,206,.6)}
 .cf-field input:focus-visible,.cf-field textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 /* Backstop: nothing focusable is ever invisible. */

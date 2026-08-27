@@ -90,7 +90,9 @@ section.hero{min-height:100vh;padding:120px 0;overflow:hidden}
 .cf-hint{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;color:var(--bone-dim);margin-left:10px}
 .cf-chips{display:flex;flex-wrap:wrap;gap:10px}
 .cf-chips input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.cf-chips label{display:inline-flex;align-items:center;padding:12px 20px;border:1px solid var(--line);background:rgba(17,19,22,.6);font-family:var(--mono);font-size:.69rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.cf-chips label{display:inline-flex;align-items:center;padding:12px 20px;border:1px solid rgba(233,230,223,.40);background:rgba(17,19,22,.6);font-family:var(--mono);font-size:.69rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.cf-chips label::before{content:'\2713';flex:none;display:inline-block;width:1em;margin-right:7px;text-align:center;visibility:hidden}
+.cf-chips input:checked+label::before{visibility:visible}
 .cf-chips label:hover{border-color:rgba(43,182,206,.5);color:var(--fg)}
 .cf-chips input:checked+label{background:var(--cyan);border-color:var(--cyan);color:#04181c}
 .cf-chips input:focus-visible+label{outline:2px solid var(--cyan);outline-offset:3px}
@@ -103,7 +105,11 @@ section.hero{min-height:100vh;padding:120px 0;overflow:hidden}
 @media(max-width:620px){.cf-row{grid-template-columns:1fr}}
 .cf-field{display:flex;flex-direction:column;margin-bottom:22px}
 .cf-field label{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.cf-field input,.cf-field textarea{background:rgba(17,19,22,.7);border:1px solid var(--line);color:var(--fg);font-family:var(--body);font-weight:300;font-size:.95rem;padding:14px 16px;width:100%;transition:border-color .2s}
+/* Solid fill, not alpha: predictable whatever sits behind it. Border alpha .40
+   measures 3.27:1 against the page - SC 1.4.11 needs 3:1 for a control boundary.
+   --line stays at .10 for decorative hairlines, which 1.4.11 does not govern. */
+.cf-field input,.cf-field textarea{background:#14171b;border:1px solid rgba(233,230,223,.40);color:var(--fg);font-family:var(--body);font-weight:300;font-size:.95rem;padding:14px 16px;width:100%;transition:border-color .2s}
+.cf-field input:hover,.cf-field textarea:hover{border-color:rgba(233,230,223,.55)}
 /* A border-colour shift alone is not a focus indicator. Keep it as a secondary
    cue, but restore a real outline - the treatment the chips already use. */
 .cf-field input:focus,.cf-field textarea:focus{border-color:rgba(43,182,206,.6)}
@@ -196,9 +202,11 @@ blockquote footer{display:flex;justify-content:space-between;font-family:var(--m
 blockquote footer .cyan{color:var(--cyan-dim)}
 
 .cta-band{text-align:center}
-.cta-band .wrap{flex-direction:column;align-items:center}
+/* .wrap here is a block, so flex-direction/align-items never applied - the copy
+   block was pinned left while its text centred inside it. Centre the block itself. */
+.cta-band .wrap{display:flex;flex-direction:column;align-items:center}
 .cta-band h2{font-family:var(--display);font-weight:500;font-size:clamp(2.6rem,7vw,5.4rem);line-height:.98}
-.cta-band .body{max-width:36ch;text-align:center}
+.cta-band .body{max-width:36ch;text-align:center;margin-inline:auto}
 .btns{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
 .cta{display:inline-flex;align-items:center;gap:12px;padding:15px 30px;background:var(--cyan);color:#04181c;font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:transform .2s,box-shadow .25s}
 .cta:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(43,182,206,.5)}
